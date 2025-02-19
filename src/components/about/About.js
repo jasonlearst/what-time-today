@@ -26,22 +26,30 @@ export default function About() {
           >
             Jonathan Cai
           </a>
-          .
-        </p>
-        <p>Stop sending me Calendly links. </p>
-        <p>
-          For feedback, questions, and inquiries, shoot me a DM{" "}
+          .  Updated By{" "}
           <a
             style={{ color: "black", textDecoration: "underline" }}
             target="_blank"
             rel="noopener noreferrer"
-            href="https://twitter.com/jonathanmcai"
+            href="https://github.com/jasonlearst"
+          >
+            Jason Learst
+          </a>
+        </p>
+        <p>Stop sending me Calendly links. </p>
+        <p>
+          For feedback, questions, and inquiries, open an issue{" "}
+          <a
+            style={{ color: "black", textDecoration: "underline" }}
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/jasonlearst/what-time-today/issues"
           >
             here
           </a>
           .
         </p>
-        <p>April 2020.</p>
+        <p>February 2025.</p>
         <p>Used {counter} times so far.</p>
       </div>
     </div>
