@@ -208,7 +208,7 @@ export default function Home() {
             value={AMPM ? [1] : []}
             onChange={handleAMPMChange}
           >
-            <ToggleButton value={1} variant="Light">
+            <ToggleButton value={1} variant="Light" style={{ minWidth: 80, textAlign: 'center' }}>
               {AMPM ? "AM/PM" : "24H"}
             </ToggleButton>
           </ToggleButtonGroup>
