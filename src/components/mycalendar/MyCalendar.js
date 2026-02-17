@@ -13,7 +13,7 @@ import "./MyCalendar.css";
 
 const localizer = momentLocalizer(moment);
 
-export default function MyCalendar() {
+export default function MyCalendar({ AMPM = true }) {
   const dispatch = useDispatch();
   const { availabilities } = useSelector(getAvailabilities);
 
@@ -28,6 +28,18 @@ export default function MyCalendar() {
   const defaultCalendarView = width > 600 ? "work_week" : "day";
 
   var height = 500;
+
+  const formats = {
+    timeGutterFormat: AMPM ? "h:mm A" : "HH:mm",
+    eventTimeRangeFormat: ({ start, end }, culture, localizer) =>
+      AMPM
+        ? `${localizer.format(start, "h:mm A")} - ${localizer.format(end, "h:mm A")}`
+        : `${localizer.format(start, "HH:mm")} - ${localizer.format(end, "HH:mm")}`,
+    selectRangeFormat: ({ start, end }, culture, localizer) =>
+      AMPM
+        ? `${localizer.format(start, "h:mm A")} - ${localizer.format(end, "h:mm A")}`
+        : `${localizer.format(start, "HH:mm")} - ${localizer.format(end, "HH:mm")}`,
+  };
 
   return (
     <div className="MyCalendar">
@@ -45,6 +57,7 @@ export default function MyCalendar() {
         onSelectEvent={(event, e) => onSelectEvent(event, dispatch)}
         eventPropGetter={eventStyleGetter}
         scrollToTime={minTime}
+        formats={formats}
         // min={minTime}
         // max={maxTime}
       />

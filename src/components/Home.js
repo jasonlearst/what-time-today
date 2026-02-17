@@ -241,7 +241,7 @@ export default function Home() {
   return (
     <div className="Body">
       <div className="Calendar">
-        <MyCalendar initDate={new Date()} />
+        <MyCalendar AMPM={AMPM} />
       </div>
       <div>
         <div className="below-calendar">
