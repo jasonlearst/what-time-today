@@ -205,7 +205,7 @@ export default function Home() {
         >
           <ToggleButtonGroup
             type="checkbox"
-            defaultValue={1}
+            value={AMPM ? [1] : []}
             onChange={handleAMPMChange}
           >
             <ToggleButton value={1} variant="Light">
@@ -220,7 +220,7 @@ export default function Home() {
         >
           <ToggleButtonGroup
             type="checkbox"
-            defaultValue={1}
+            value={MonthDay ? [1] : []}
             onChange={handleMonthDayChange}
           >
             <ToggleButton value={1} variant="Light">
