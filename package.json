@@ -2,6 +2,7 @@
   "name": "meetme",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jasonlearst.github.io/what-time-today",
   "dependencies": {
     "@material-ui/core": "^4.9.11",
     "@testing-library/jest-dom": "^4.2.4",
@@ -26,9 +27,11 @@
   "scripts": {
     "start": "serve -s build",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider PORT=$PORT react-scripts start",
-    "build": "CI='' react-scripts build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider CI='' react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }

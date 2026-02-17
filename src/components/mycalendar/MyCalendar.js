@@ -1,14 +1,8 @@
 import React from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import SingleCalendar from "../singlecalendar/SingleCalendar";
-import { Paper, List } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getCalendars,
-  getEvents,
-  getAvailabilities,
-} from "../../redux/selectors";
+import { getAvailabilities } from "../../redux/selectors";
 import {
   onSelectEvent,
   onSelectAvailableSlot,
@@ -21,8 +15,6 @@ const localizer = momentLocalizer(moment);
 
 export default function MyCalendar() {
   const dispatch = useDispatch();
-  const { calendars } = useSelector(getCalendars);
-  const { events } = useSelector(getEvents);
   const { availabilities } = useSelector(getAvailabilities);
 
   const minTime = new Date();
@@ -39,38 +31,10 @@ export default function MyCalendar() {
 
   return (
     <div className="MyCalendar">
-      {calendars.length > 0 && (
-        <Paper
-          className="calendar-paper"
-          style={{
-            maxHeight: height,
-            overflow: "auto",
-            marginRight: 20,
-            width: "15%",
-          }}
-        >
-          <List>
-            {calendars.map((calendar, i) => {
-              return <SingleCalendar key={i} i={i} calendar={calendar} />;
-            })}
-          </List>
-        </Paper>
-      )}
-
       <Calendar
         className="big-calendar"
         localizer={localizer}
-        events={events.concat(availabilities).filter((e) => {
-          if (!e) {
-            return false;
-          }
-          for (let i = 0; i < calendars.length; i++) {
-            if (calendars[i].id === e.calendarId) {
-              return calendars[i].visible;
-            }
-          }
-          return true;
-        })}
+        events={availabilities}
         selectable={true}
         onSelectSlot={(info) => onSelectAvailableSlot(dispatch, info)}
         startAccessor="start"

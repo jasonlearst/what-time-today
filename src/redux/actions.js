@@ -2,13 +2,6 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   SET_FILTER,
-  SIGNIN,
-  SIGNOUT,
-  ADD_CALENDAR,
-  TOGGLE_CALENDAR,
-  CLEAR_CALENDARS,
-  ADD_EVENT,
-  CLEAR_ALL_EVENTS,
   ADD_AVAILABILITY,
   REMOVE_AVAILABILITY,
   CLEAR_AVAILABILITIES,
@@ -27,46 +20,6 @@ export const addTodo = (content) => ({
 export const toggleTodo = (id) => ({
   type: TOGGLE_TODO,
   payload: { id },
-});
-
-export const signIn = (user) => ({
-  type: SIGNIN,
-  payload: {
-    user: user,
-  },
-});
-
-export const signOut = () => ({
-  type: SIGNOUT,
-});
-
-export const addCalendar = (calendar) => ({
-  type: ADD_CALENDAR,
-  payload: {
-    calendar: calendar,
-  },
-});
-
-export const toggleCalendar = (calendar) => ({
-  type: TOGGLE_CALENDAR,
-  payload: {
-    calendar: calendar,
-  },
-});
-
-export const clearCalendars = () => ({
-  type: CLEAR_CALENDARS,
-});
-
-export const addEvent = (event) => ({
-  type: ADD_EVENT,
-  payload: {
-    event: event,
-  },
-});
-
-export const clearAllEvents = () => ({
-  type: CLEAR_ALL_EVENTS,
 });
 
 export const addAvailability = (availability) => ({

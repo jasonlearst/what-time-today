@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import Privacy from "./components/privacy/Privacy";
 import About from "./components/about/About";
@@ -11,11 +11,6 @@ import "./style/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-
-  useEffect(() => {
-    console.log("Loading client");
-  }, []);
-
   return (
     <div className="App">
       <Router>
@@ -27,7 +22,9 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/">{<Home />}</Route>
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
         <Footer />
       </Router>
