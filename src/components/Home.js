@@ -209,7 +209,7 @@ export default function Home() {
             onChange={handleAMPMChange}
           >
             <ToggleButton value={1} variant="Light">
-              AM/PM
+              {AMPM ? "AM/PM" : "24H"}
             </ToggleButton>
           </ToggleButtonGroup>
         </OverlayTrigger>
